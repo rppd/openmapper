@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_GLWidget_t {
-    uint offsetsAndSizes[20];
+    uint offsetsAndSizes[24];
     char stringdata0[9];
     char stringdata1[17];
     char stringdata2[1];
@@ -36,7 +36,9 @@ struct qt_meta_stringdata_GLWidget_t {
     char stringdata6[13];
     char stringdata7[13];
     char stringdata8[13];
-    char stringdata9[8];
+    char stringdata9[14];
+    char stringdata10[11];
+    char stringdata11[8];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_GLWidget_t::offsetsAndSizes) + ofs), len 
@@ -51,7 +53,9 @@ Q_CONSTINIT static const qt_meta_stringdata_GLWidget_t qt_meta_stringdata_GLWidg
         QT_MOC_LITERAL(67, 12),  // "setXRotation"
         QT_MOC_LITERAL(80, 12),  // "setYRotation"
         QT_MOC_LITERAL(93, 12),  // "setZRotation"
-        QT_MOC_LITERAL(106, 7)   // "cleanup"
+        QT_MOC_LITERAL(106, 13),  // "setNumSectors"
+        QT_MOC_LITERAL(120, 10),  // "numSectors"
+        QT_MOC_LITERAL(131, 7)   // "cleanup"
     },
     "GLWidget",
     "xRotationChanged",
@@ -62,6 +66,8 @@ Q_CONSTINIT static const qt_meta_stringdata_GLWidget_t qt_meta_stringdata_GLWidg
     "setXRotation",
     "setYRotation",
     "setZRotation",
+    "setNumSectors",
+    "numSectors",
     "cleanup"
 };
 #undef QT_MOC_LITERAL
@@ -73,7 +79,7 @@ Q_CONSTINIT static const uint qt_meta_data_GLWidget[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -81,15 +87,16 @@ Q_CONSTINIT static const uint qt_meta_data_GLWidget[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   56,    2, 0x06,    1 /* Public */,
-       4,    1,   59,    2, 0x06,    3 /* Public */,
-       5,    1,   62,    2, 0x06,    5 /* Public */,
+       1,    1,   62,    2, 0x06,    1 /* Public */,
+       4,    1,   65,    2, 0x06,    3 /* Public */,
+       5,    1,   68,    2, 0x06,    5 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    1,   65,    2, 0x0a,    7 /* Public */,
-       7,    1,   68,    2, 0x0a,    9 /* Public */,
-       8,    1,   71,    2, 0x0a,   11 /* Public */,
-       9,    0,   74,    2, 0x0a,   13 /* Public */,
+       6,    1,   71,    2, 0x0a,    7 /* Public */,
+       7,    1,   74,    2, 0x0a,    9 /* Public */,
+       8,    1,   77,    2, 0x0a,   11 /* Public */,
+       9,    1,   80,    2, 0x0a,   13 /* Public */,
+      11,    0,   83,    2, 0x0a,   15 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -100,6 +107,7 @@ Q_CONSTINIT static const uint qt_meta_data_GLWidget[] = {
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, QMetaType::Int,   10,
     QMetaType::Void,
 
        0        // eod
@@ -132,6 +140,9 @@ Q_CONSTINIT const QMetaObject GLWidget::staticMetaObject = { {
         // method 'setZRotation'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'setNumSectors'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'cleanup'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
@@ -150,7 +161,8 @@ void GLWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 3: _t->setXRotation((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 4: _t->setYRotation((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 5: _t->setZRotation((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 6: _t->cleanup(); break;
+        case 6: _t->setNumSectors((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 7: _t->cleanup(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -200,13 +212,13 @@ int GLWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 8)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }

@@ -1,5 +1,6 @@
-HEADERS = src/glwidget.h src/logo.h src/mainwindow.h src/window.h
-SOURCES = src/glwidget.cpp src/logo.cpp src/mainwindow.cpp src/window.cpp src/main.cpp
+HEADERS = src/*.h
+SOURCES = src/*.cpp
+        
 
 DESTDIR = ./bin
 MOC_DIR = ./moc

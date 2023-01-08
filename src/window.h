@@ -4,38 +4,27 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <QWidget>
+#include <QMainWindow>
+#include <QSlider>
 
-QT_BEGIN_NAMESPACE
-class QSlider;
-class QPushButton;
-QT_END_NAMESPACE
+#include "sidebar_widget.h"
+#include "glwidget.h"
+#include "scene_widget.h"
 
-class GLWidget;
-class MainWindow;
+class SidebarWidget;
 
-class Window : public QWidget
+class Window : public QMainWindow
 {
-    Q_OBJECT
-
 public:
-    Window(MainWindow *mw);
+    Window();
 
-protected:
-    void keyPressEvent(QKeyEvent *event) override;
-
-private slots:
-    void dockUndock();
+    QSlider* createSlider(int min, int max);
+    QSlider* createAngleSlider();
 
 private:
-    QSlider *createSlider();
-
-    GLWidget *glWidget;
-    QSlider *xSlider;
-    QSlider *ySlider;
-    QSlider *zSlider;
-    QPushButton *dockBtn;
-    MainWindow *mainWindow;
+    SceneWidget* sceneWidget;
+    GLWidget* glWidget;
+    SidebarWidget* sidebarWidget;
 };
 
 #endif
