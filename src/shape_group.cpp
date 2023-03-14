@@ -1,53 +1,43 @@
 #include "shape_group.h"
 
-#include "shape.h"
-#include "triangle.h"
-#include "qopengl.h"
-#include "glwidget.h"
+#include <iostream>
+#include <cmath>
 
-#include <stdio.h>
 #include <QOpenGLBuffer>
 #include <QOpenGLShaderProgram>
 #include <QVector2D>
 #include <QPainter>
 #include <QMatrix4x4>
+#include <QDateTime>
 
-void ShapeGroup::build() {
-    QOpenGLContext* ctx = QOpenGLContext::currentContext();
-    printf("Building group with %d shapes. (%p)\n", (int) shapes.size(), ctx);
+GLWidget::GLPointers ShapeGroup::build(QOpenGLContext* ctx) const {
+    ctx->makeCurrent(ctx->surface());
     QOpenGLFunctions* f = ctx->functions();
-    
-    vbo = new QOpenGLBuffer();
-    program = new QOpenGLShaderProgram();
+
+    QOpenGLVertexArrayObject* vao = new QOpenGLVertexArrayObject();
+    QOpenGLBuffer* vbo = new QOpenGLBuffer();
+    QOpenGLShaderProgram* program = new QOpenGLShaderProgram();
 
     program->create();
     program->addShaderFromSourceFile(QOpenGLShader::Vertex, "shaders/default.vert");
-    program->addShaderFromSourceFile(QOpenGLShader::Fragment, "shaders/default.frag");
+    program->addShaderFromSourceFile(QOpenGLShader::Fragment, "shaders/stripes.frag");
     program->link();
     program->bind();
 
-    if (vao.isCreated()) {
-        vao.destroy();
-        printf("Destroyed \n");
-    }
-    vao.create();
-    QOpenGLVertexArrayObject::Binder vaoBinder(&vao);
+    vao->create();
+    QOpenGLVertexArrayObject::Binder vaoBinder(vao);
 
     vbo->create();
     vbo->bind();
 
-    vertexCount = 0;
-    for (const Shape &shape: shapes) {
-        vertexCount += shape.nTriangles()*6;
-    }
-    GLfloat data[vertexCount*4];
+    int vCount = vertexCount();
+    GLfloat data[vCount*4];
     GLfloat* p = data;
-    for (const Shape &shape: shapes) {
+    for (const Shape &shape: *this) {
         for (const Triangle &triangle: shape.getTriangles()) {
             p = triangle.appendData(p);
         }
     }
-    p = data;
     vbo->allocate(data, sizeof(data));
 
     f->glEnableVertexAttribArray(0);
@@ -57,31 +47,27 @@ void ShapeGroup::build() {
 
     vbo->release();
     program->release();
-}
 
-void ShapeGroup::draw() {
-    QOpenGLFunctions* f = QOpenGLContext::currentContext()->functions();
-    printf("In Shape::draw(), context is at %p\n", QOpenGLContext::currentContext());
-
-    QOpenGLVertexArrayObject::Binder vaoBinder(&vao);
-    program->bind();
-
-    printf("Drawing %d vertices (%p).\n", vertexCount, QOpenGLContext::currentContext());
-    f->glDrawArrays(GL_TRIANGLES, 0, vertexCount);
-  
-    program->release();
+    GLWidget::GLPointers pointers = { vbo, vao, program, vCount };
+    return pointers;
 }
 
 void ShapeGroup::paint(QPainter* painter) const {
-    for (Shape shape: shapes) {
+    for (Shape shape: *this) {
         QList<QVector2D> vectors = shape.getPoints();
         QList<QPointF> points; // = QList(vectors.begin(), vectors.end());
-        for (QVector2D vec: vectors) {
-            points.append(vec.toPointF());
-        }
+        for (QVector2D vec: vectors) points.append(vec.toPointF());
         painter->drawPolyline(points.data(), points.size());
         painter->drawLine(points.first(), points.last());
     }
+}
+
+int ShapeGroup::vertexCount() const {
+    int count = 0;
+    for (const Shape &shape: *this) {
+        count += shape.nTriangles()*6;
+    }
+    return count;
 }
 
 void ShapeGroup::allocateVBO() const {

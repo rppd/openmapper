@@ -2,6 +2,7 @@
 
 #include "shape_group.h"
 #include "glwidget.h"
+#include "iostream"
 
 #include <QMouseEvent>
 #include <QPaintEvent>
@@ -16,6 +17,10 @@ SceneWidget::SceneWidget() {
     pal.setColor(QPalette::Window, Qt::black);
     setAutoFillBackground(true);
     setPalette(pal);
+}
+
+SceneWidget::SceneWidget(QWidget* parent): QWidget(parent) {
+    SceneWidget();
 }
 
 void SceneWidget::mouseMoveEvent(QMouseEvent* e) {
@@ -42,7 +47,7 @@ void SceneWidget::paintEvent(QPaintEvent*) {
     painter.drawPolyline(selectedPoints.data(), selectedPoints.size());
     if (!selectedPoints.empty()) painter.drawLine(selectedPoints.last(), cursor);
 
-    scene.paint(&painter);
+    if (_scene != nullptr) _scene->paint(&painter);
 }
 
 void SceneWidget::createShape() {
@@ -50,14 +55,12 @@ void SceneWidget::createShape() {
     for(QPointF point: selectedPoints) {
         shape.addPoint(QVector2D(point.x(),point.y()));
     }
-    if (scene.nGroups() == 0) createGroup();
-    for(GLWidget* glw: glWidgets) {
-        glw->makeCurrent(); 
-        scene.addShape(shape, selectedGroup);
-        glw->update();
-    }
+    if (_scene->size() == 0) createGroup();
+    _scene->addShape(shape, selectedGroup);
+    _glw->registerPointers(_scene->build(_glw->context()));
 }
 
 void SceneWidget::createGroup() {
-    scene.createGroup();
+    if (_scene != nullptr) _scene->createGroup();
+    else qDebug() << "Trying to create a group without a scene.";
 }

@@ -1,14 +1,13 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
 
-#include "scene.h"
-
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLBuffer>
 #include <QOpenGLDebugLogger>
 #include <QMatrix4x4>
+#include <QTimer>
 
 QT_FORWARD_DECLARE_CLASS(QOpenGLShaderProgram)
 
@@ -16,22 +15,32 @@ class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 {
 
 public:
-    GLWidget(): QOpenGLWidget(), QOpenGLFunctions() {};
-    GLWidget(Scene* p_scene): QOpenGLWidget(), QOpenGLFunctions(), scene(p_scene) {};
-    GLWidget(QWidget* parent): QOpenGLWidget(parent), QOpenGLFunctions() {};
-    GLWidget(QWidget* parent, Scene* p_scene): QOpenGLWidget(parent), QOpenGLFunctions(), scene(p_scene) {};
+    struct GLPointers
+    {
+        QOpenGLBuffer *vbo;
+        QOpenGLVertexArrayObject *vao;
+        QOpenGLShaderProgram *program;
+        int vertexCount;
+    };
+
+    GLWidget() : QOpenGLWidget(), QOpenGLFunctions(){};
+    GLWidget(QWidget *parent) : QOpenGLWidget(parent), QOpenGLFunctions(){};
     ~GLWidget();
 
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
 
-    void errorCheck(std::string marker);
-    void errorCheck();
     void logErrors();
     void initLogging();
-    
-    static void logBuffer(QOpenGLBuffer* vbo);
-    static void bindAndLog(QOpenGLBuffer* buf, std::string marker="<no marker>");
+    void onTimer();
+    // void build();
+    void draw(const GLPointers &p) const;
+    void registerPointers(const QList<GLPointers> p) { glPointers = p; };
+
+    static void logBuffer(QOpenGLBuffer *vbo);
+    static void bindAndLog(QOpenGLBuffer *buf, std::string marker = "<no marker>");
+    static void errorCheck(std::string marker);
+    static void errorCheck();
 
 public slots:
     void cleanup();
@@ -44,10 +53,12 @@ protected:
 private:
     // std::string loadShaderSource(std::string filename);
 
-    int vertexCount;
-    QOpenGLDebugLogger* logger;
-    QMatrix4x4 transform;
-    Scene* scene;
+    QOpenGLDebugLogger *logger;
+    QTimer *timer;
+    QOpenGLContext *ctx; // TODO remove, replace using QOpenGLWidget::context()
+
+    QList<GLPointers> glPointers;
+    QList<int> vertexCounts;
 };
 
 #endif

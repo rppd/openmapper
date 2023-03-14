@@ -2,6 +2,7 @@
 #define SHAPE_GROUP_H
 
 #include "shape.h"
+#include "glwidget.h"
 
 #include <QList>
 #include <QOpenGLBuffer>
@@ -9,26 +10,27 @@
 #include <QPainter>
 #include <QOpenGLVertexArrayObject>
 
-class ShapeGroup {
-    public:
-        ShapeGroup() {};
-        ~ShapeGroup() { printf("Destroying a ShapeGroup.\n");}
+class ShapeGroup : public QList<Shape>
+{
+public:
+    ShapeGroup(){};
+    ~ShapeGroup() { printf("Destroying a ShapeGroup.\n"); }
 
-        void build();
-        void draw(); //openGL : render
-        void paint(QPainter* painter) const; //qpainter : ui
-        void addShape(const Shape shape) { shapes.append(shape); };
-        Shape getShape(int i) const { return shapes.at(i); } ;
-        int size() const { return shapes.size(); } ;
-    private:
-        QList<Shape> shapes;
-        int vertexCount;
-        void allocateVBO() const;
+    GLWidget::GLPointers build(QOpenGLContext* ctx) const;
+    void draw(GLWidget *glWidget, QMatrix4x4 transform) const; // openGL : render
+    void paint(QPainter *painter) const;                       // qpainter : ui
 
-        QOpenGLBuffer* vbo;
-        QOpenGLVertexArrayObject vao;
-        QOpenGLShaderProgram* program;
+    QString name() const { return _name; };
+    void name(QString name) { _name = name; };
+
+    int vertexCount() const;
+
+signals:
+    void update();
+
+private:
+    QString _name = "ShapeGroup";
+    void allocateVBO() const;
 };
-
 
 #endif

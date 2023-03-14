@@ -3,23 +3,35 @@
 
 #include "window.h"
 #include "glwidget.h"
+#include "scene.h"
 
 class Window;
 
 #include <QWidget>
 #include <QVBoxLayout>
-#include <QSlider>
 #include <QPushButton>
+#include <QListWidget>
+#include <QComboBox>
 
 class SidebarWidget: public QWidget {
     public:
         SidebarWidget() {};
-        SidebarWidget(Window* window, GLWidget* glWidget);
+        SidebarWidget(Window* window, GLWidget* glWidget, Scene* scene);
         QSize sizeHint();
         int minimumWidth();
+        
+        void setScene(Scene* scene);
+        void selectGroup(int index);
+
+    public slots:
+        void update();
+
     private:
         QVBoxLayout* layout;
-        QSlider* slider;
+        QListWidget* shapeList;
+        QComboBox* groupSelector;
+
+        Scene* scene;
 };
 
 #endif

@@ -10,6 +10,7 @@
 #include "sidebar_widget.h"
 #include "glwidget.h"
 #include "scene_widget.h"
+#include "iostream"
 
 class SidebarWidget;
 

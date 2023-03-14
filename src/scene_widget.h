@@ -12,19 +12,23 @@
 class SceneWidget: public QWidget {
     public:
         SceneWidget();
-        SceneWidget(QWidget* parent): QWidget(parent) { SceneWidget(); scene.setContext(QOpenGLContext::currentContext()); };
+        SceneWidget(QWidget* parent);
         ~SceneWidget() {};
 
         void mousePressEvent(QMouseEvent* e);
         void mouseMoveEvent(QMouseEvent* e);
         void paintEvent(QPaintEvent* e);
-        Scene* pScene() { return &scene; };
-        void addGLWidget(GLWidget* glw) { glWidgets.append(glw); }
+
+        Scene* scene() const { return _scene; };
+        void scene(Scene* scene) { _scene = scene; };
+
+        void setGLWidget(GLWidget* glw) { _glw = glw; };
+
     private:
-        Scene scene;
+        Scene* _scene = nullptr;
         QPointF cursor;
         QList<QPointF> selectedPoints;
-        QList<GLWidget*> glWidgets;
+        GLWidget* _glw;
         int selectedGroup = 0;
 
         void drawSelectedPoints(QPainter painter);

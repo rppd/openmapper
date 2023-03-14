@@ -2,19 +2,19 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
 
 #include "window.h"
-#include "glwidget.h"
-#include "sidebar_widget.h"
 
 #include <QSlider>
 #include <QSplitter>
 
 Window::Window()
 {
+    glWidget = new GLWidget(); //creates the OpenGL Context
+    
     sceneWidget = new SceneWidget();
-    glWidget = new GLWidget(sceneWidget->pScene());
-    sceneWidget->addGLWidget(glWidget);
-
-    sidebarWidget = new SidebarWidget(this, glWidget);
+    sceneWidget->scene(new Scene()); //requires an OpenGL Context
+    sceneWidget->setGLWidget(glWidget);
+    
+    sidebarWidget = new SidebarWidget(this, glWidget, sceneWidget->scene());
 
     QSplitter* leftSplitter = new QSplitter();
     leftSplitter->setOrientation(Qt::Vertical);
