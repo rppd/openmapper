@@ -14,12 +14,16 @@ Window::Window()
     sceneWidget->scene(new Scene()); //requires an OpenGL Context
     sceneWidget->setGLWidget(glWidget);
     
+    tabWidget = new QTabWidget;
+    tabWidget->addTab(sceneWidget, "Scene Editor");
+
     sidebarWidget = new SidebarWidget(this, glWidget, sceneWidget->scene());
 
     QSplitter* leftSplitter = new QSplitter();
     leftSplitter->setOrientation(Qt::Vertical);
     leftSplitter->addWidget(glWidget);
-    leftSplitter->addWidget(sceneWidget);
+    leftSplitter->addWidget(tabWidget);
+    leftSplitter->setSizes({1,1});
 
     QSplitter* splitter = new QSplitter();
     splitter->addWidget(leftSplitter);

@@ -34,7 +34,7 @@ GLWidget::GLPointers ShapeGroup::build(QOpenGLContext* ctx) const {
     GLfloat data[vCount*4];
     GLfloat* p = data;
     for (const Shape &shape: *this) {
-        for (const Triangle &triangle: shape.getTriangles()) {
+        for (const Triangle &triangle: shape.getMesh()) {
             p = triangle.appendData(p);
         }
     }
@@ -53,19 +53,22 @@ GLWidget::GLPointers ShapeGroup::build(QOpenGLContext* ctx) const {
 }
 
 void ShapeGroup::paint(QPainter* painter) const {
-    for (Shape shape: *this) {
-        QList<QVector2D> vectors = shape.getPoints();
-        QList<QPointF> points; // = QList(vectors.begin(), vectors.end());
-        for (QVector2D vec: vectors) points.append(vec.toPointF());
-        painter->drawPolyline(points.data(), points.size());
-        painter->drawLine(points.first(), points.last());
+    for (const Shape& shape: *this) {
+        // QList<QVector2D> vectors = shape.getPoints();
+        // QList<QPointF> points; // = QList(vectors.begin(), vectors.end());
+        // for (QVector2D vec: vectors) points.append(vec.toPointF());
+        // painter->drawPolyline(points.data(), points.size());
+        // painter->drawLine(points.first(), points.last());
+        for (const Triangle& triangle: shape.getMesh()) {
+            painter->drawPolyline(triangle.getPolygonF());
+        }
     }
 }
 
 int ShapeGroup::vertexCount() const {
     int count = 0;
     for (const Shape &shape: *this) {
-        count += shape.nTriangles()*6;
+        count += shape.meshSize()*6;
     }
     return count;
 }

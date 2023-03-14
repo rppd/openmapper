@@ -6,6 +6,7 @@
 
 #include <QMainWindow>
 #include <QSlider>
+#include <QTabWidget>
 
 #include "sidebar_widget.h"
 #include "glwidget.h"
@@ -26,6 +27,7 @@ private:
     SceneWidget* sceneWidget;
     GLWidget* glWidget;
     SidebarWidget* sidebarWidget;
+    QTabWidget* tabWidget;
 };
 
 #endif

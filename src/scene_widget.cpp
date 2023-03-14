@@ -55,6 +55,8 @@ void SceneWidget::createShape() {
     for(QPointF point: selectedPoints) {
         shape.addPoint(QVector2D(point.x(),point.y()));
     }
+    shape.makeMesh();
+    shape.autoCenter();
     if (_scene->size() == 0) createGroup();
     _scene->addShape(shape, selectedGroup);
     _glw->registerPointers(_scene->build(_glw->context()));
