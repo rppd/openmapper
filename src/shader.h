@@ -1,9 +1,13 @@
 #ifndef SHADER_H
 #define SHADER_H
 
+#include <qopengl.h>
+
 #include <QOpenGLShader>
+#include <QOpenGLFunctions>
 #include <QString>
 #include <QList>
+#include <QOpenGLShaderProgram>
 
 class Shader: public QOpenGLShader {
     public:
@@ -15,15 +19,15 @@ class Shader: public QOpenGLShader {
 
         struct Uniform {
             QString name;
-            Uniform type;
+            UniformType type;
         };
 
-        Shader() {};
-        Shader(QString name): _name(name) {};
+        Shader(): QOpenGLShader(QOpenGLShader::Fragment) {};
+        Shader(QString name): QOpenGLShader(QOpenGLShader::Fragment), _name(name) {};
         void compile(const QString& source);
         void loadUniforms();
 
-        QString name() { return _name; };
+        QString name() const { return _name; };
         void name(QString name) { _name = name; };
 
     private:
@@ -31,6 +35,6 @@ class Shader: public QOpenGLShader {
         QString _name;
         QString _source;
 
-}
+};
 
 #endif

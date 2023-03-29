@@ -64,7 +64,7 @@ void ShapeGroup::paint(QPainter* painter) const {
         // painter->drawPolyline(points.data(), points.size());
         // painter->drawLine(points.first(), points.last());
         for (const Triangle& triangle: shape.getMesh()) {
-            painter->drawPolygone(triangle.getPolygonF());
+            painter->drawPolygon(triangle.getPolygonF());
         }
     }
 }

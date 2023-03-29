@@ -4,22 +4,29 @@
 
 #include <QFile>
 
-ShaderLibrary::addShader(Shader shader) {
+void ShaderLibrary::addShader(Shader* shader) {
     append(shader);
     saveShaderToFile(shader);
 }
 
-ShaderLibrary::addShader(const QString& source, QString name) {
-    Shader shader(name);
-    shader.compile(source);
+void ShaderLibrary::addShader(const QString& source, QString name) {
+    Shader* shader = new Shader(name);
+    shader->compile(source);
     addShader(shader);
 }
 
-ShaderLibrary::saveShaderToFile(const Shader& shader) const {
-    QString filename = QFile::encodeName(shader.name() + ".frag");
+void ShaderLibrary::saveShaderToFile(const Shader* shader) const {
+    QString filename = QFile::encodeName(shader->name() + ".frag");
     QFile file = QFile("shaders/"+filename);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) return;
     QTextStream out(&file);
-    out << shader.sourceCode();
+    out << shader->sourceCode();
 
+}
+
+int ShaderLibrary::shaderIndex(QString& name) const {
+    for (int i=0; i<size(); i++) {
+        if ((*this)[i]->name() == name) return i;
+    }
+    return -1;
 }

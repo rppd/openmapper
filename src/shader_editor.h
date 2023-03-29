@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QOpenGLShaderProgram>
 #include <QLayout>
+#include <QSplitter>
 
 class ShaderEditor: public QWidget {
     public:

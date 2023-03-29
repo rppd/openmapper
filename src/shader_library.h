@@ -5,17 +5,20 @@
 #include <QString>
 #include <QOpenGLShader>
 
-class ShaderLibrary: public QList<QOpenGLShader> {
+#include "shader.h"
+
+class ShaderLibrary: public QList<Shader*> {
 
     public:
         ShaderLibrary();
 
-        void addShader(QOpenGLShader shader);
-        int shaderIndex(QString name) const;
+        void addShader(Shader* shader);
+        void addShader(const QString& source, QString name);
+        int shaderIndex(QString& name) const;
 
     private:
-        void saveShaderToFile(const QOpenGLShader& shader) const;
+        void saveShaderToFile(const Shader* shader) const;
 
-}
+};
 
 #endif

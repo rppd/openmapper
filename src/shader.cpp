@@ -1,11 +1,7 @@
 #include "shader.h"
 
-#include <qopengl.h>
-
-#include "QOpenGLShaderProgram"
-
 void Shader::compile(const QString& source) {
-    compileFormSource(source);
+    compileSourceCode(source);
     uniforms = QList<Uniform>();
     loadUniforms();
     _source = source;
@@ -13,10 +9,11 @@ void Shader::compile(const QString& source) {
 
 void Shader::loadUniforms() {
     QOpenGLShaderProgram* testProgram = new QOpenGLShaderProgram();
-    testProgram->addShader(QOpenGLShader::Fragmet, this);
+    testProgram->addShader(this);
     GLint count;
-    GLint program = program->programId();
-    glGetProgramiv(program, GL_ACTIVE_ATTRIBUTES, &count);
+    GLint program = testProgram->programId();
+    QOpenGLFunctions* f = QOpenGLContext::currentContext()->functions();
+    f->glGetProgramiv(program, GL_ACTIVE_ATTRIBUTES, &count);
 
     GLint i;
     GLint size;
@@ -25,7 +22,7 @@ void Shader::loadUniforms() {
     GLchar name[bufSize];
     GLsizei nameSize;
     for (i=0; i<count; i++) {
-        getGetActiveAttrib(program, (GLunit) i, bufSize, &nameSize, &size, &type, name);
+        f->glGetActiveAttrib(program, (GLuint) i, bufSize, &nameSize, &size, &type, name);
         Uniform uniform;
         switch (type) {
             case GL_FLOAT:
