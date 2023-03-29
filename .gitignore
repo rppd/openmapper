@@ -1,2 +1,4 @@
 /.qmake.stash
 /.vscode
+object/*
+moc/*
