@@ -9,6 +9,7 @@
 #include <QOpenGLShaderProgram>
 #include <QPainter>
 #include <QOpenGLVertexArrayObject>
+#include <QString>
 
 class ShapeGroup : public QList<Shape>
 {
@@ -22,6 +23,8 @@ public:
 
     QString name() const { return _name; };
     void name(QString name) { _name = name; };
+    QString shaderSource() const { return _shaderSource; };
+    void shaderSource(QString shaderSource) { _shaderSource = shaderSource; };
 
     int vertexCount() const;
 
@@ -29,6 +32,7 @@ signals:
     void update();
 
 private:
+    QString _shaderSource = "";
     QString _name = "ShapeGroup";
     void allocateVBO() const;
 };

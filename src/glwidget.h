@@ -33,7 +33,6 @@ public:
     void logErrors();
     void initLogging();
     void onTimer();
-    // void build();
     void draw(const GLPointers &p) const;
     void registerPointers(const QList<GLPointers> p) { glPointers = p; };
 
@@ -49,7 +48,6 @@ public slots:
 protected:
     void initializeGL() override;
     void paintGL() override;
-
 private:
     // std::string loadShaderSource(std::string filename);
 

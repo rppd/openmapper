@@ -20,7 +20,11 @@ GLWidget::GLPointers ShapeGroup::build(QOpenGLContext* ctx) const {
 
     program->create();
     program->addShaderFromSourceFile(QOpenGLShader::Vertex, "shaders/default.vert");
-    program->addShaderFromSourceFile(QOpenGLShader::Fragment, "shaders/stripes.frag");
+    if (_shaderSource.size() > 0) {
+        program->addShaderFromSourceCode(QOpenGLShader::Fragment, _shaderSource);
+    } else {
+        program->addShaderFromSourceFile(QOpenGLShader::Fragment, "shaders/stripes.frag");
+    }
     program->link();
     program->bind();
 
@@ -60,7 +64,7 @@ void ShapeGroup::paint(QPainter* painter) const {
         // painter->drawPolyline(points.data(), points.size());
         // painter->drawLine(points.first(), points.last());
         for (const Triangle& triangle: shape.getMesh()) {
-            painter->drawPolyline(triangle.getPolygonF());
+            painter->drawPolygone(triangle.getPolygonF());
         }
     }
 }

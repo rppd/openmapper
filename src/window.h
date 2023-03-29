@@ -7,11 +7,15 @@
 #include <QMainWindow>
 #include <QSlider>
 #include <QTabWidget>
+#include <QSplitter>
+
+#include "iostream"
 
 #include "sidebar_widget.h"
 #include "glwidget.h"
 #include "scene_widget.h"
-#include "iostream"
+#include "shader_editor.h"
+
 
 class SidebarWidget;
 
@@ -28,6 +32,7 @@ private:
     GLWidget* glWidget;
     SidebarWidget* sidebarWidget;
     QTabWidget* tabWidget;
+    ShaderEditor* shaderEditor;
 };
 
 #endif

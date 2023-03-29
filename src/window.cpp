@@ -3,21 +3,21 @@
 
 #include "window.h"
 
-#include <QSlider>
-#include <QSplitter>
-
 Window::Window()
 {
     glWidget = new GLWidget(); //creates the OpenGL Context
     
     sceneWidget = new SceneWidget();
-    sceneWidget->scene(new Scene()); //requires an OpenGL Context
+    sceneWidget->scene(new Scene());
     sceneWidget->setGLWidget(glWidget);
+
+    shaderEditor = new ShaderEditor();
     
     tabWidget = new QTabWidget;
     tabWidget->addTab(sceneWidget, "Scene Editor");
+    tabWidget->addTab(shaderEditor, "Shader Editor");
 
-    sidebarWidget = new SidebarWidget(this, glWidget, sceneWidget->scene());
+    sidebarWidget = new SidebarWidget(glWidget, sceneWidget->scene());
 
     QSplitter* leftSplitter = new QSplitter();
     leftSplitter->setOrientation(Qt::Vertical);

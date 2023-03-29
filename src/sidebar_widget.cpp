@@ -1,10 +1,6 @@
 #include "sidebar_widget.h"
-#include "glwidget.h"
-#include "window.h"
 
 #include "iostream"
-
-#include <QSlider>
 
 QSize SidebarWidget::sizeHint() {
     return QSize(500,1000);
@@ -14,7 +10,7 @@ int SidebarWidget::minimumWidth() {
     return 600;
 }
 
-SidebarWidget::SidebarWidget(Window* window, GLWidget* glWidget, Scene* scene): scene(scene) {
+SidebarWidget::SidebarWidget(GLWidget* glWidget, Scene* scene): scene(scene) {
     groupSelector = new QComboBox(this);
     shapeList = new QListWidget(this);
     layout = new QVBoxLayout();

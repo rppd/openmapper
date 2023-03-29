@@ -41,6 +41,7 @@ QPolygonF Triangle::getPolygonF() const {
     for (QVector2D point: points) {
         pointsF.append(point.toPointF());
     }
+    pointsF.append(points[0].toPointF());
     return QPolygonF(pointsF);
 }
 

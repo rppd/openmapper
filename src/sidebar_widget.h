@@ -1,11 +1,8 @@
 #ifndef SIDEBAR_WIDGET_H
 #define SIDEBAR_WIDGET_H
 
-#include "window.h"
 #include "glwidget.h"
 #include "scene.h"
-
-class Window;
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -16,7 +13,7 @@ class Window;
 class SidebarWidget: public QWidget {
     public:
         SidebarWidget() {};
-        SidebarWidget(Window* window, GLWidget* glWidget, Scene* scene);
+        SidebarWidget(GLWidget* glWidget, Scene* scene);
         QSize sizeHint();
         int minimumWidth();
         

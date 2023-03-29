@@ -112,17 +112,6 @@ void GLWidget::onTimer() {
     update();
 }
 
-// void GLWidget::build(const Scene* scene) {
-//     if (scene != nullptr) {
-//         glPointers = scene->build(ctx);
-//         vertexCount = scene->vertexCount();
-//     }
-//     else {
-//         glPointers = QList<GLWidget::GLPointers>();
-//         vertexCount = 0;
-//     }
-// }
-
 void GLWidget::draw(const GLPointers& p) const {
     QSize viewportSize = size();
 
