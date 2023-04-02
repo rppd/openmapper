@@ -8,10 +8,12 @@ ShaderEditor::ShaderEditor(ShaderLibrary* library): shaderLibrary(library) {
     errorArea = new QTextEdit();
     nameInput = new QLineEdit();
     saveButton = new QPushButton("Save");
+    deleteButton = new QPushButton("Delete");
     shaderSelector = new ShaderSelector(shaderLibrary);
     
     saveLayout->addWidget(nameInput);
     saveLayout->addWidget(saveButton);
+    saveLayout->addWidget(deleteButton);
     
     textArea->setAcceptRichText(false);
     errorArea->setReadOnly(true);
@@ -26,8 +28,9 @@ ShaderEditor::ShaderEditor(ShaderLibrary* library): shaderLibrary(library) {
     setLayout(layout);
 
     connect(textArea, &QTextEdit::textChanged, this, &ShaderEditor::onTextChange);
-    connect(shaderSelector, &QComboBox::currentTextChanged, this, &ShaderEditor::selectShader);
+    connect(shaderSelector, &QComboBox::currentTextChanged, this, &ShaderEditor::selectShaderByName);
     connect(saveButton, &QPushButton::pressed, this, &ShaderEditor::save);
+    connect(deleteButton, &QPushButton::pressed, this, &ShaderEditor::deleteShader);
     connect(nameInput, &QLineEdit::returnPressed, this, &ShaderEditor::save);
 }
 
@@ -46,16 +49,21 @@ void ShaderEditor::onTextChange() {
     }
 }
 
-void ShaderEditor::selectShader(const QString& shaderName) {
-    selectedShaderIndex = shaderLibrary->shaderIndex(shaderName);
-    if (selectedShaderIndex == -1) {
-        shaderLibrary->addShader(Shader(shaderName));
-        selectedShaderIndex = shaderLibrary->size()-1;
-    }
+void ShaderEditor::selectShader(const int index) {
+    selectedShaderIndex = index;
     Shader& shader = shaderLibrary->at(selectedShaderIndex);
     nameInput->setText(shader.name());
     textArea->setPlainText(shader.source());
     errorArea->setPlainText("");
+}
+
+void ShaderEditor::selectShaderByName(const QString& shaderName) {
+    int index = shaderLibrary->shaderIndex(shaderName);
+    if (index == -1) {
+        shaderLibrary->addShader(Shader(shaderName));
+        index = shaderLibrary->size()-1;
+    }
+    selectShader(index);
 }
 
 void ShaderEditor::keyPressEvent(QKeyEvent* event) {
@@ -87,4 +95,8 @@ void ShaderEditor::save() const {
     errorArea -> setPlainText("Saving shader...");
     shaderLibrary->saveShaderCode(selectedShaderIndex,textArea->toPlainText());
     errorArea -> setPlainText("Shader saved.");
+}
+
+void ShaderEditor::deleteShader() {
+    shaderLibrary->destroy(selectedShaderIndex);
 }

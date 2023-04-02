@@ -1,7 +1,6 @@
 #include "shader_library.h"
 
 void ShaderLibrary::loadShaderDir() {
-    std::cout << "Loading shader dir" << std::endl;
     QDir shaderDir("shaders/");
     for (const QString& filename: shaderDir.entryList(QDir::Files)) {
         loadShader("shaders/" + filename);
@@ -64,5 +63,13 @@ void ShaderLibrary::saveShaderCode(const long unsigned int index, const QString&
     Shader& current = shaders[index];
     shaders[index] = Shader(current.name(), newSource);
     saveShaderToFile(index);
+    updated();
+}
+
+void ShaderLibrary::destroy(const int index) {
+    if (index == -1) return;
+    QFile file = shaderFile(index);
+    file.remove();
+    shaders.erase(shaders.begin()+index);
     updated();
 }

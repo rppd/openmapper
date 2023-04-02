@@ -3,16 +3,22 @@
 
 #include "../geometry/scene.h"
 #include "glwidget.h"
+#include "../geometry/shape_group.h"
 
+#include <QMouseEvent>
+#include <QPaintEvent>
+#include <QPainter>
+#include <QPalette>
 #include <QWidget>
 #include <QPaintDevice>
-#include <QPaintEvent>
 #include <QPointF>
 
 class SceneWidget: public QWidget {
+    Q_OBJECT
+
     public:
-        SceneWidget();
-        SceneWidget(QWidget* parent);
+        SceneWidget(Scene& scene);
+        SceneWidget(QWidget* parent, Scene& scene);
         ~SceneWidget() {};
 
         void mousePressEvent(QMouseEvent* e);
@@ -20,13 +26,16 @@ class SceneWidget: public QWidget {
         void paintEvent(QPaintEvent* e);
         void build();
 
-        Scene* scene() const { return _scene; };
-        void scene(Scene* scene) { _scene = scene; };
+        Scene& scene() const { return _scene; };
+        void scene(Scene& scene) { _scene = scene; };
 
         void setGLWidget(GLWidget* glw) { _glw = glw; };
+    
+    signals:
+        void geometryUpdated();
 
     private:
-        Scene* _scene = nullptr;
+        Scene& _scene;
         QPointF cursor;
         QList<QPointF> selectedPoints;
         GLWidget* _glw;
@@ -34,7 +43,6 @@ class SceneWidget: public QWidget {
 
         void drawSelectedPoints(QPainter painter);
         void createShape();
-        void createGroup();
 };
 
 #endif

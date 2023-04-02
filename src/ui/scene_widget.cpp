@@ -1,26 +1,12 @@
 #include "scene_widget.h"
 
-#include "shape_group.h"
-#include "glwidget.h"
-#include "iostream"
-
-#include <QMouseEvent>
-#include <QPaintEvent>
-#include <QPainter>
-#include <Qt>
-#include <QPalette>
-
-SceneWidget::SceneWidget() {
+SceneWidget::SceneWidget(Scene& scene): _scene(scene) {
     setMouseTracking(true);
     
     QPalette pal = QPalette();
     pal.setColor(QPalette::Window, Qt::black);
     setAutoFillBackground(true);
     setPalette(pal);
-}
-
-SceneWidget::SceneWidget(QWidget* parent): QWidget(parent) {
-    SceneWidget();
 }
 
 void SceneWidget::mouseMoveEvent(QMouseEvent* e) {
@@ -40,6 +26,7 @@ void SceneWidget::mousePressEvent(QMouseEvent* e) {
 }
 
 void SceneWidget::paintEvent(QPaintEvent*) {
+    // std::cout << "paintevent" << std::endl;0
     QPainter painter(this);
     painter.setPen(Qt::white);
     painter.drawLine(cursor.x(), 0, cursor.x(), height());
@@ -47,7 +34,7 @@ void SceneWidget::paintEvent(QPaintEvent*) {
     painter.drawPolyline(selectedPoints.data(), selectedPoints.size());
     if (!selectedPoints.empty()) painter.drawLine(selectedPoints.last(), cursor);
 
-    if (_scene != nullptr) _scene->paint(&painter);
+    _scene.paint(&painter);
 }
 
 void SceneWidget::createShape() {
@@ -57,16 +44,6 @@ void SceneWidget::createShape() {
     }
     shape.makeMesh();
     shape.autoCenter();
-    if (_scene->nGroups() == 0) createGroup();
-    _scene->addShape(shape, selectedGroup);
-    build();
-}
-
-void SceneWidget::createGroup() {
-    if (_scene != nullptr) _scene->createGroup();
-    else qDebug() << "Trying to create a group without a scene.";
-}
-
-void SceneWidget::build() {
-    _glw->registerPointers(_scene->build(_glw->context()));
+    _scene.addShape(shape, selectedGroup);
+    geometryUpdated();
 }

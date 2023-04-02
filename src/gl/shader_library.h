@@ -18,13 +18,14 @@ class ShaderLibrary: public QObject {
         ShaderLibrary() {};
 
         void addShader(const Shader& shader);
-        Shader& at(const int i) { return shaders[i]; };
+        Shader& at(const int i) { return shaders.at(i); };
         Shader* data() { return shaders.data(); };
         int size() const { return shaders.size(); };
         int shaderIndex(const QString& name) const;
         
         void saveShaderCode(const long unsigned int index, const QString& newSource);
         void rename(const int index, const QString& name);
+        void destroy(const int index);
         
     signals:
         void updated();

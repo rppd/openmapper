@@ -1,9 +1,8 @@
 #include "shape_group.h"
 
-#include "../gl/glpointers.h"
 
-void build() {
-    _pointers = build(_ctx);
+void ShapeGroup::build() {
+    if (_ctx != nullptr) _pointers = build(_ctx);
 }
 
 GLPointers ShapeGroup::build(QOpenGLContext* ctx) const {

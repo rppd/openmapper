@@ -2,7 +2,7 @@
 #define SCENE_H
 
 #include "shape_group.h"
-#include "../ui/glwidget.h"
+#include "../gl/glpointers.h"
 
 #include <QList>
 #include <QPainter>
@@ -12,11 +12,10 @@
 class Scene {
 
 public:
-    Scene(QOpenGLContext* ctx): _ctx(ctx) { createGroup(); };
+    Scene(QOpenGLContext* ctx = nullptr): _ctx(ctx) { groups = std::vector<ShapeGroup>(1); createGroup(); };
     ~Scene() = default;
 
-    void draw(GLWidget* glWidget) const; // openGL
-    void paint(QPainter* painter) const; // qpainter
+    void paint(QPainter* painter) const;
     void addShape(const Shape shape, int group);
 
     ShapeGroup& createGroup();
@@ -24,6 +23,7 @@ public:
     QStringList getGroupNames() const;
     int nGroups() { return groups.size(); };
     std::vector<GLPointers> pointers() const;
+    void context(QOpenGLContext* ctx);
 
     int vertexCount() const;
 

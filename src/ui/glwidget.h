@@ -19,8 +19,8 @@ class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 
 public:
 
-    GLWidget() : QOpenGLWidget(), QOpenGLFunctions(){};
-    GLWidget(QWidget *parent) : QOpenGLWidget(parent), QOpenGLFunctions(){};
+    GLWidget(Scene& scene): QOpenGLWidget(), QOpenGLFunctions(), _scene(scene) { };
+    GLWidget(QWidget *parent, Scene& scene) : QOpenGLWidget(parent), QOpenGLFunctions(), _scene(scene) { };
     ~GLWidget();
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
@@ -30,7 +30,6 @@ public:
     void onTimer();
     void draw() const;
     void draw(const GLPointers& pointers) const;
-    void registerPointers(const QList<GLPointers> p) { GLPointers = p; };
 
     Scene& scene() const { return _scene; };
     void scene(Scene& scene) { _scene = scene; };
@@ -57,7 +56,7 @@ private:
     QOpenGLDebugLogger *logger;
     QTimer *timer;
     QOpenGLContext *ctx; // TODO remove, replace using QOpenGLWidget::context()
-    Scene& _scene = Scene();
+    Scene& _scene;
 
 };
 

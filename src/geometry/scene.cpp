@@ -6,15 +6,6 @@
 #include <iostream>
 #include <QSize>
 
-QList<GLPointers> Scene::build() const {
-    ctx->makeCurrent(ctx->surface());
-    QList<GLPointers> list = QList<GLPointers>();
-    for (const ShapeGroup& group : groups) {
-        list.append(group.build(ctx));
-    }
-    return list;
-}
-
 void Scene::addShape(const Shape shape, int group_index) {
     ShapeGroup& group = groups.at(group_index);
     group.append(shape);
@@ -48,9 +39,16 @@ int Scene::vertexCount() const {
 }
 
 std::vector<GLPointers> Scene::pointers() const {
-    std::vector<GLPointers> pointers();
+    std::vector<GLPointers> pointers;
     pointers.reserve(groups.size());
     for (const ShapeGroup& group: groups) {
         pointers.push_back(group.pointers());
+    }
+    return pointers;
+}
+
+void Scene::context(QOpenGLContext* ctx) {
+    for (ShapeGroup& group: groups) {
+        group.context(ctx);
     }
 }

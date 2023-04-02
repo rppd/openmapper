@@ -23,12 +23,14 @@ class ShaderEditor: public QWidget {
         void onTextChange();
 
         void save() const;
+        void deleteShader();
         void keyPressEvent(QKeyEvent* event) override;
         bool event(QEvent* event) override;
 
     public slots:
         void reloadLibrary();
-        void selectShader(const QString& shaderName);
+        void selectShader(const int index);
+        void selectShaderByName(const QString& shaderName);
 
     private:
         QOpenGLShaderProgram testProgram;
@@ -42,6 +44,7 @@ class ShaderEditor: public QWidget {
         ShaderSelector* shaderSelector;
         QLineEdit* nameInput;
         QPushButton* saveButton;
+        QPushButton* deleteButton;
 
         ShaderLibrary* shaderLibrary;
         int selectedShaderIndex;

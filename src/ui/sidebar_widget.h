@@ -14,9 +14,10 @@
 #include <QComboBox>
 
 class SidebarWidget: public QWidget {
+    Q_OBJECT
+    
     public:
-        SidebarWidget() {};
-        SidebarWidget(Scene* scene, ShaderLibrary* shaderLibrary);
+        SidebarWidget(Scene& scene, ShaderLibrary* shaderLibrary);
         QSize sizeHint();
         int minimumWidth();
         
@@ -33,7 +34,7 @@ class SidebarWidget: public QWidget {
         QComboBox* groupSelector;
         ShaderSelector* shaderSelector;
 
-        Scene* scene;
+        Scene& _scene;
         ShaderLibrary* shaderLibrary;
 };
 
