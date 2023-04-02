@@ -1,15 +1,15 @@
 #include "shader.h"
 
-void Shader::compile(const QString& source) {
-    compileSourceCode(source);
+void Shader::source(const QString& newSource) {
+    qShader->compileSourceCode(newSource);
     uniforms = QList<Uniform>();
     loadUniforms();
-    _source = source;
+    _source = newSource;
 }
 
 void Shader::loadUniforms() {
     QOpenGLShaderProgram* testProgram = new QOpenGLShaderProgram();
-    testProgram->addShader(this);
+    testProgram->addShader(qShader);
     GLint count;
     GLint program = testProgram->programId();
     QOpenGLFunctions* f = QOpenGLContext::currentContext()->functions();

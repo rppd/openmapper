@@ -1,44 +1,39 @@
 #include "scene.h"
+#include "../gl/glpointers.h"
 
 #include <QList>
 #include <QPainter>
 #include <iostream>
 #include <QSize>
 
-Scene::Scene() {
-    createGroup();
-}
-
-QList<GLWidget::GLPointers> Scene::build(QOpenGLContext* ctx) const {
+QList<GLPointers> Scene::build() const {
     ctx->makeCurrent(ctx->surface());
-    QList<GLWidget::GLPointers> list = QList<GLWidget::GLPointers>();
-    for (const ShapeGroup& group : *this) {
+    QList<GLPointers> list = QList<GLPointers>();
+    for (const ShapeGroup& group : groups) {
         list.append(group.build(ctx));
     }
     return list;
 }
 
 void Scene::addShape(const Shape shape, int group_index) {
-    ShapeGroup& group = (*this)[group_index];
+    ShapeGroup& group = groups.at(group_index);
     group.append(shape);
-    emit updated();
 }
 
 void Scene::paint(QPainter* painter) const {
-    for (const ShapeGroup& group: *this) {
+    for (const ShapeGroup& group: groups) {
         group.paint(painter);
     }
 }
 
 ShapeGroup& Scene::createGroup() {
-    append(ShapeGroup());
-    emit updated();
-    return last();
+    groups.push_back(ShapeGroup(_ctx));
+    return groups.at(groups.size()-1);
 };
 
 QStringList Scene::getGroupNames() const {
     QStringList list = QStringList();
-    for (const ShapeGroup& group : *this) {
+    for (const ShapeGroup& group : groups) {
         list.append(group.name());
     }
     return list;
@@ -46,8 +41,16 @@ QStringList Scene::getGroupNames() const {
 
 int Scene::vertexCount() const {
     int count = 0;
-    for (const ShapeGroup& group : *this) {
+    for (const ShapeGroup& group : groups) {
         count += group.vertexCount();
     }
     return count;
+}
+
+std::vector<GLPointers> Scene::pointers() const {
+    std::vector<GLPointers> pointers();
+    pointers.reserve(groups.size());
+    for (const ShapeGroup& group: groups) {
+        pointers.push_back(group.pointers());
+    }
 }

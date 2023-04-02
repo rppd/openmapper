@@ -57,12 +57,16 @@ void SceneWidget::createShape() {
     }
     shape.makeMesh();
     shape.autoCenter();
-    if (_scene->size() == 0) createGroup();
+    if (_scene->nGroups() == 0) createGroup();
     _scene->addShape(shape, selectedGroup);
-    _glw->registerPointers(_scene->build(_glw->context()));
+    build();
 }
 
 void SceneWidget::createGroup() {
     if (_scene != nullptr) _scene->createGroup();
     else qDebug() << "Trying to create a group without a scene.";
+}
+
+void SceneWidget::build() {
+    _glw->registerPointers(_scene->build(_glw->context()));
 }

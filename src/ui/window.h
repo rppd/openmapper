@@ -9,7 +9,7 @@
 #include <QTabWidget>
 #include <QSplitter>
 
-#include "iostream"
+#include <iostream>
 
 #include "sidebar_widget.h"
 #include "glwidget.h"
@@ -33,6 +33,8 @@ private:
     SidebarWidget* sidebarWidget;
     QTabWidget* tabWidget;
     ShaderEditor* shaderEditor;
+
+    ShaderLibrary* shaderLibrary; //all pointers because qt objects have to be on the heap "by design" apparently
 };
 
 #endif

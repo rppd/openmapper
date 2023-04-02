@@ -10,18 +10,19 @@ int SidebarWidget::minimumWidth() {
     return 600;
 }
 
-SidebarWidget::SidebarWidget(GLWidget* glWidget, Scene* scene): scene(scene) {
-    groupSelector = new QComboBox(this);
-    shapeList = new QListWidget(this);
+SidebarWidget::SidebarWidget(Scene* scene, ShaderLibrary* shaderLibrary): scene(scene), shaderLibrary(shaderLibrary) {
+    groupSelector = new QComboBox();
+    shaderSelector = new ShaderSelector(shaderLibrary);
+    shapeList = new QListWidget();
     layout = new QVBoxLayout();
     
     layout->addWidget(groupSelector);
+    layout->addWidget(shaderSelector);
     layout->addWidget(shapeList);
     layout->addStretch();
     setLayout(layout);
-    
-    update();
-    connect(scene, &Scene::updated, this, &SidebarWidget::update);
+
+    connect(shaderSelector, &QComboBox::currentIndexChanged, this, &SidebarWidget::selectShader);
 }
 
 void SidebarWidget::update() {
@@ -33,9 +34,14 @@ void SidebarWidget::update() {
 
 void SidebarWidget::selectGroup(int index) {
     if (index == -1) index = 0;
-    ShapeGroup group = scene->value(index);
     shapeList->clear();
-    for (int i=0; i<group.size(); i++) {
+    for (int i=0; i<scene->nGroups(); i++) {
         shapeList->addItem(QString::number(i));
     }
+}
+
+void SidebarWidget::selectShader(int index) {
+    Shader& shader = shaderLibrary->at(index);
+    ShapeGroup& selectedGroup = scene->at(groupSelector->currentIndex());
+    selectedGroup.shaderSource(shader.source());
 }

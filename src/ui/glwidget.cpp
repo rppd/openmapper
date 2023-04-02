@@ -1,4 +1,5 @@
 #include "glwidget.h"
+#include "../gl/glpointers.h"
 
 #include <iostream>
 #include <math.h>
@@ -42,6 +43,7 @@ void GLWidget::initializeGL() {
     timer->setInterval(31);
     timer->start();
     ctx = QOpenGLContext::currentContext();
+    glReady();
 }
 
 void GLWidget::paintGL() {
@@ -49,7 +51,7 @@ void GLWidget::paintGL() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
-    for (const GLPointers& pointers : glPointers) {
+    for (const GLPointers& pointers : _scene.pointers()) {
         draw(pointers);
     }
     logErrors();

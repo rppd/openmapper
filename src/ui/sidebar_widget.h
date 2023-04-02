@@ -2,7 +2,10 @@
 #define SIDEBAR_WIDGET_H
 
 #include "glwidget.h"
-#include "scene.h"
+#include "../geometry/scene.h"
+#include "../gl/shader_library.h"
+#include "shader_selector.h"
+#include "../geometry/shape_group.h"
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -13,12 +16,13 @@
 class SidebarWidget: public QWidget {
     public:
         SidebarWidget() {};
-        SidebarWidget(GLWidget* glWidget, Scene* scene);
+        SidebarWidget(Scene* scene, ShaderLibrary* shaderLibrary);
         QSize sizeHint();
         int minimumWidth();
         
         void setScene(Scene* scene);
         void selectGroup(int index);
+        void selectShader(int index);
 
     public slots:
         void update();
@@ -27,8 +31,10 @@ class SidebarWidget: public QWidget {
         QVBoxLayout* layout;
         QListWidget* shapeList;
         QComboBox* groupSelector;
+        ShaderSelector* shaderSelector;
 
         Scene* scene;
+        ShaderLibrary* shaderLibrary;
 };
 
 #endif

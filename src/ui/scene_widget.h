@@ -1,7 +1,7 @@
 #ifndef SCENE_WIDGET_H
 #define SCENE_WIDGET_H
 
-#include "scene.h"
+#include "../geometry/scene.h"
 #include "glwidget.h"
 
 #include <QWidget>
@@ -18,6 +18,7 @@ class SceneWidget: public QWidget {
         void mousePressEvent(QMouseEvent* e);
         void mouseMoveEvent(QMouseEvent* e);
         void paintEvent(QPaintEvent* e);
+        void build();
 
         Scene* scene() const { return _scene; };
         void scene(Scene* scene) { _scene = scene; };
