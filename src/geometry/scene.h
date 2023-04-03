@@ -12,13 +12,15 @@
 class Scene {
 
 public:
-    Scene(QOpenGLContext* ctx = nullptr): _ctx(ctx) { groups = std::vector<ShapeGroup>(1); createGroup(); };
+    Scene(QOpenGLContext* ctx = nullptr): _ctx(ctx) { createGroup(); };
     ~Scene() = default;
 
     void paint(QPainter* painter) const;
     void addShape(const Shape shape, int group);
 
     ShapeGroup& createGroup();
+    void deleteGroup(int index);
+
     ShapeGroup& at(int i) { return groups.at(i); };
     QStringList getGroupNames() const;
     int nGroups() { return groups.size(); };

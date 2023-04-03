@@ -1278,12 +1278,23 @@ moc/moc_glwidget.cpp: src/ui/glwidget.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qset.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qhash.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		src/gl/shader.h \
+		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QPainter \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpainter.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpixmap.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qcolor.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgb.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgba64.h \
@@ -1298,16 +1309,7 @@ moc/moc_glwidget.cpp: src/ui/glwidget.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontinfo.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfont.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLContext \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QSize \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QStringList \
 		../../Qt/6.4.1/gcc_64/include/QtOpenGLWidgets/QOpenGLWidget \
@@ -1465,12 +1467,23 @@ moc/moc_scene_widget.cpp: src/ui/scene_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qset.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qhash.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		src/gl/shader.h \
+		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QPainter \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpainter.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpixmap.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qcolor.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgb.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgba64.h \
@@ -1485,16 +1498,7 @@ moc/moc_scene_widget.cpp: src/ui/scene_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontinfo.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfont.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLContext \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QSize \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QStringList \
 		src/ui/glwidget.h \
@@ -1845,12 +1849,23 @@ moc/moc_sidebar_widget.cpp: src/ui/sidebar_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qset.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qhash.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		src/gl/shader.h \
+		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QPainter \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpainter.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpixmap.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qcolor.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgb.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgba64.h \
@@ -1865,16 +1880,7 @@ moc/moc_sidebar_widget.cpp: src/ui/sidebar_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontinfo.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfont.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLContext \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QSize \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QStringList \
 		../../Qt/6.4.1/gcc_64/include/QtOpenGLWidgets/QOpenGLWidget \
@@ -1911,8 +1917,6 @@ moc/moc_sidebar_widget.cpp: src/ui/sidebar_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qbasictimer.h \
 		src/gl/shader_library.h \
-		src/gl/shader.h \
-		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QFile \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qfile.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qfiledevice.h \
@@ -1952,6 +1956,15 @@ moc/moc_sidebar_widget.cpp: src/ui/sidebar_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtWidgets/qabstractitemview.h \
 		../../Qt/6.4.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/QLineEdit \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/qlineedit.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qtextcursor.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qtextdocument.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qtextformat.h \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/QGridLayout \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/QLabel \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/qlabel.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qpicture.h \
 		moc/moc_predefs.h \
 		../../Qt/6.4.1/gcc_64/libexec/moc
 	/home/robin/Qt/6.4.1/gcc_64/libexec/moc $(DEFINES) --include /home/robin/openmapper/openmapper/moc/moc_predefs.h -I/home/robin/Qt/6.4.1/gcc_64/mkspecs/linux-g++ -I/home/robin/openmapper/openmapper -I/home/robin/Qt/6.4.1/gcc_64/include -I/home/robin/Qt/6.4.1/gcc_64/include/QtOpenGLWidgets -I/home/robin/Qt/6.4.1/gcc_64/include/QtWidgets -I/home/robin/Qt/6.4.1/gcc_64/include/QtOpenGL -I/home/robin/Qt/6.4.1/gcc_64/include/QtGui -I/home/robin/Qt/6.4.1/gcc_64/include/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/ui/sidebar_widget.h -o moc/moc_sidebar_widget.cpp
@@ -2223,12 +2236,23 @@ objects/scene.o: src/geometry/scene.cpp src/geometry/scene.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qset.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qhash.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		src/gl/shader.h \
+		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QPainter \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpainter.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpixmap.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qcolor.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgb.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgba64.h \
@@ -2243,16 +2267,7 @@ objects/scene.o: src/geometry/scene.cpp src/geometry/scene.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontinfo.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfont.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLContext \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QSize \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QStringList
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o objects/scene.o src/geometry/scene.cpp
@@ -2472,12 +2487,23 @@ objects/shape_group.o: src/geometry/shape_group.cpp src/geometry/shape_group.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qset.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qhash.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		src/gl/shader.h \
+		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QPainter \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpainter.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpixmap.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qcolor.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgb.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgba64.h \
@@ -2492,16 +2518,7 @@ objects/shape_group.o: src/geometry/shape_group.cpp src/geometry/shape_group.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontinfo.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfont.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLContext \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h
+		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLContext
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o objects/shape_group.o src/geometry/shape_group.cpp
 
 objects/triangle.o: src/geometry/triangle.cpp src/geometry/triangle.h \
@@ -2967,12 +2984,23 @@ objects/glwidget.o: src/ui/glwidget.cpp src/ui/glwidget.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qset.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qhash.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		src/gl/shader.h \
+		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QPainter \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpainter.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpixmap.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qcolor.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgb.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgba64.h \
@@ -2987,16 +3015,7 @@ objects/glwidget.o: src/ui/glwidget.cpp src/ui/glwidget.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontinfo.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfont.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLContext \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QSize \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QStringList \
 		../../Qt/6.4.1/gcc_64/include/QtOpenGLWidgets/QOpenGLWidget \
@@ -3175,12 +3194,23 @@ objects/scene_widget.o: src/ui/scene_widget.cpp src/ui/scene_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qset.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qhash.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		src/gl/shader.h \
+		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QPainter \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpainter.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpixmap.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qcolor.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgb.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgba64.h \
@@ -3195,16 +3225,7 @@ objects/scene_widget.o: src/ui/scene_widget.cpp src/ui/scene_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontinfo.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfont.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLContext \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QSize \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QStringList \
 		src/ui/glwidget.h \
@@ -3759,12 +3780,23 @@ objects/sidebar_widget.o: src/ui/sidebar_widget.cpp src/ui/sidebar_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qset.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qhash.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		src/gl/shader.h \
+		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QPainter \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpainter.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpixmap.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qwindowdefs_win.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qcolor.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgb.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qrgba64.h \
@@ -3779,16 +3811,7 @@ objects/sidebar_widget.o: src/ui/sidebar_widget.cpp src/ui/sidebar_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontinfo.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfont.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLContext \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QSize \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QStringList \
 		../../Qt/6.4.1/gcc_64/include/QtOpenGLWidgets/QOpenGLWidget \
@@ -3825,8 +3848,6 @@ objects/sidebar_widget.o: src/ui/sidebar_widget.cpp src/ui/sidebar_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qbasictimer.h \
 		src/gl/shader_library.h \
-		src/gl/shader.h \
-		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QFile \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qfile.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qfiledevice.h \
@@ -3865,7 +3886,16 @@ objects/sidebar_widget.o: src/ui/sidebar_widget.cpp src/ui/sidebar_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtWidgets/qlistview.h \
 		../../Qt/6.4.1/gcc_64/include/QtWidgets/qabstractitemview.h \
 		../../Qt/6.4.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/qitemselectionmodel.h
+		../../Qt/6.4.1/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/QLineEdit \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/qlineedit.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qtextcursor.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qtextdocument.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qtextformat.h \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/QGridLayout \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/QLabel \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/qlabel.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qpicture.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o objects/sidebar_widget.o src/ui/sidebar_widget.cpp
 
 objects/window.o: src/ui/window.cpp src/ui/window.h \
@@ -4039,18 +4069,20 @@ objects/window.o: src/ui/window.cpp src/ui/window.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qmatrix4x4.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qquaternion.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qgenericmatrix.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QPainter \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qpainter.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qtextoption.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qpen.h \
-		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLContext \
+		src/gl/shader.h \
+		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QSurfaceFormat \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qsurfaceformat.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLFunctions \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qopenglfunctions.h \
+		../../Qt/6.4.1/gcc_64/include/QtCore/QString \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QPainter \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qpainter.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qtextoption.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qpen.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/QOpenGLContext \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QStringList \
 		../../Qt/6.4.1/gcc_64/include/QtOpenGLWidgets/QOpenGLWidget \
 		../../Qt/6.4.1/gcc_64/include/QtOpenGLWidgets/qopenglwidget.h \
@@ -4064,8 +4096,6 @@ objects/window.o: src/ui/window.cpp src/ui/window.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qbasictimer.h \
 		src/gl/shader_library.h \
-		src/gl/shader.h \
-		../../Qt/6.4.1/gcc_64/include/QtOpenGL/QOpenGLShader \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QFile \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qfile.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qfiledevice.h \
@@ -4101,6 +4131,15 @@ objects/window.o: src/ui/window.cpp src/ui/window.h \
 		../../Qt/6.4.1/gcc_64/include/QtWidgets/qabstractitemview.h \
 		../../Qt/6.4.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
 		../../Qt/6.4.1/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/QLineEdit \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/qlineedit.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qtextcursor.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qtextdocument.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qtextformat.h \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/QGridLayout \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/QLabel \
+		../../Qt/6.4.1/gcc_64/include/QtWidgets/qlabel.h \
+		../../Qt/6.4.1/gcc_64/include/QtGui/qpicture.h \
 		src/ui/scene_widget.h \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QMouseEvent \
 		../../Qt/6.4.1/gcc_64/include/QtGui/QPaintEvent \
@@ -4110,14 +4149,9 @@ objects/window.o: src/ui/window.cpp src/ui/window.h \
 		src/ui/shader_editor.h \
 		../../Qt/6.4.1/gcc_64/include/QtWidgets/QTextEdit \
 		../../Qt/6.4.1/gcc_64/include/QtWidgets/qtextedit.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qtextdocument.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qtextcursor.h \
-		../../Qt/6.4.1/gcc_64/include/QtGui/qtextformat.h \
 		../../Qt/6.4.1/gcc_64/include/QtWidgets/QLayout \
 		../../Qt/6.4.1/gcc_64/include/QtCore/QEvent \
-		../../Qt/6.4.1/gcc_64/include/QtGui/QKeyEvent \
-		../../Qt/6.4.1/gcc_64/include/QtWidgets/QLineEdit \
-		../../Qt/6.4.1/gcc_64/include/QtWidgets/qlineedit.h
+		../../Qt/6.4.1/gcc_64/include/QtGui/QKeyEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o objects/window.o src/ui/window.cpp
 
 objects/moc_shader_library.o: moc/moc_shader_library.cpp 

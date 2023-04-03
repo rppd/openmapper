@@ -48,7 +48,13 @@ std::vector<GLPointers> Scene::pointers() const {
 }
 
 void Scene::context(QOpenGLContext* ctx) {
+    _ctx = ctx;
     for (ShapeGroup& group: groups) {
-        group.context(ctx);
+        group.context(_ctx);
     }
+}
+
+void Scene::deleteGroup(int index) {
+    groups.erase(groups.begin()+index);
+    if (groups.size() == 0) createGroup();
 }

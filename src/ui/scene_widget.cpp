@@ -26,7 +26,6 @@ void SceneWidget::mousePressEvent(QMouseEvent* e) {
 }
 
 void SceneWidget::paintEvent(QPaintEvent*) {
-    // std::cout << "paintevent" << std::endl;0
     QPainter painter(this);
     painter.setPen(Qt::white);
     painter.drawLine(cursor.x(), 0, cursor.x(), height());
@@ -46,4 +45,8 @@ void SceneWidget::createShape() {
     shape.autoCenter();
     _scene.addShape(shape, selectedGroup);
     geometryUpdated();
+}
+
+void SceneWidget::updateSelection(int index) {
+    if (index > 0 && index < _scene.nGroups()) selectedGroup = index;
 }

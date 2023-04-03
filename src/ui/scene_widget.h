@@ -31,8 +31,12 @@ class SceneWidget: public QWidget {
 
         void setGLWidget(GLWidget* glw) { _glw = glw; };
     
+    public slots:
+        void updateSelection(int index);
+
     signals:
         void geometryUpdated();
+        
 
     private:
         Scene& _scene;

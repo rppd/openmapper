@@ -12,7 +12,6 @@ Window::Window()
     connect(glWidget, &GLWidget::glReady, shaderLibrary, &ShaderLibrary::loadShaderDir);
 
     sceneWidget = new SceneWidget(*scene);
-
     shaderEditor = new ShaderEditor(shaderLibrary);  
     tabWidget = new QTabWidget;
     tabWidget->addTab(sceneWidget, "Scene Editor");
@@ -24,7 +23,7 @@ Window::Window()
     leftSplitter->setOrientation(Qt::Vertical);
     leftSplitter->addWidget(glWidget);
     leftSplitter->addWidget(tabWidget);
-    leftSplitter->setSizes({1,1});
+    leftSplitter->setSizes({500,500});
 
     QSplitter* splitter = new QSplitter();
     splitter->addWidget(leftSplitter);
@@ -33,7 +32,7 @@ Window::Window()
 
     setWindowTitle(tr("OpenGL Window"));
 
-    connect(sceneWidget, &SceneWidget::geometryUpdated, sidebarWidget, &SidebarWidget::update);
+    connect(sceneWidget, &SceneWidget::geometryUpdated, sidebarWidget, &SidebarWidget::loadGroups);
 }
 
 QSlider* Window::createSlider(int min, int max) {

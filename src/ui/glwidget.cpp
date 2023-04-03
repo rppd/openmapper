@@ -126,7 +126,6 @@ void GLWidget::draw(const GLPointers& p) const {
 
     int ms = QDateTime::currentMSecsSinceEpoch();
     float t = 0.001f * (float)ms;
-    // printf("%f\n", t);
 
     QOpenGLContext* ctx = context();
     ctx->makeCurrent(ctx->surface());

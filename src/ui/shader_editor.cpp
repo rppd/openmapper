@@ -75,15 +75,6 @@ void ShaderEditor::keyPressEvent(QKeyEvent* event) {
 }
 
 bool ShaderEditor::event(QEvent* event) {
-    // if (event->type() == QEvent::KeyPress) {
-    //     QKeyEvent* keyEvent = (QKeyEvent*) event;
-    //     QKeyCombination comb = keyEvent->keyCombination();
-    //     std::cout << comb.key() << std::endl;
-    //     if (comb.key() == Qt::Key_S && comb.keyboardModifiers() == Qt::Key_Control) {
-    //         std::cout << "saving ?" << std::endl;
-    //     }
-    // }
-    // std::cout << "shader editor event" << std::endl;
     return QWidget::event(event);
 }
 

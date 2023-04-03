@@ -3,6 +3,7 @@
 
 #include "shape.h"
 #include "../gl/glpointers.h"
+#include "../gl/shader.h"
 // #include "qopengl.h"
 
 #include <iostream>
@@ -20,7 +21,7 @@ class ShapeGroup
 {
 
 public:
-    ShapeGroup(QOpenGLContext* ctx = nullptr): _ctx(ctx) { build(); };
+    ShapeGroup(QOpenGLContext* ctx = nullptr):  _shader(Shader::defaultShader), _ctx(ctx) { build(); };
     ~ShapeGroup() = default;
 
     GLPointers build(QOpenGLContext* ctx) const;
@@ -44,6 +45,7 @@ public:
 
 private:
     QString _shaderSource = "";
+    Shader _shader;
     QString _name = "ShapeGroup";
     std::vector<Shape> shapes;
 

@@ -23,9 +23,8 @@ class Shader {
             UniformType type;
         };
 
-        Shader() {};
-        Shader(QString aname): _name(aname) {};
-        Shader(QString aname, QString asource): _name(aname), _source(asource) {};
+        Shader(const QString& aname, const QString& asource = defaultShaderSource): _name(aname), _source(asource) {};
+        Shader(): Shader("Default Shader",defaultShaderSource) {};
 
         void loadUniforms();
         void source(const QString& newSource);
@@ -33,6 +32,9 @@ class Shader {
 
         QString name() const { return _name; };
         void name(QString name) { _name = name; };
+
+        static QString defaultShaderSource;
+        static Shader defaultShader;
 
     private:
         QOpenGLShader* qShader = new QOpenGLShader(QOpenGLShader::Fragment); //has to be a pointer because Qt disabled copy of QOpenGLShader (and wants it to be a poinbter)

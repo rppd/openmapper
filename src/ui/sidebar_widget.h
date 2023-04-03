@@ -28,13 +28,17 @@ class SidebarWidget: public QWidget {
         void selectGroup(int index);
         void updateShaderSelection();
         void renameGroup(const QString& name);
+        void deleteGroup();
+        void createGroup();
 
     public slots:
-        void update();
+        void loadGroups();
+
+    signals:
+        void selectionUpdated(int index);
 
     private:
         QVBoxLayout* layout;
-        QGridLayout* gridLayout;
         QListWidget* shapeList;
         QComboBox* groupSelector;
         ShaderSelector* shaderSelector;
