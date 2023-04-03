@@ -1,10 +1,13 @@
 #include "shader_library.h"
 
 void ShaderLibrary::loadShaderDir() {
+    blockSignals(true);
     QDir shaderDir("shaders/");
     for (const QString& filename: shaderDir.entryList(QDir::Files)) {
         loadShader("shaders/" + filename);
     }
+    blockSignals(false);
+    updated();
 }
 
 void ShaderLibrary::addShader(const Shader& shader) {
@@ -19,6 +22,7 @@ void ShaderLibrary::saveShaderToFile(const int index) const {
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) return;
     QTextStream out(&file);
     out << shader.source();
+    file.close();
 }
 
 int ShaderLibrary::shaderIndex(const QString& name) const {
@@ -52,10 +56,15 @@ QString ShaderLibrary::decodeShaderFilename(const QString& filename) const {
 }
 
 void ShaderLibrary::rename(const int index, const QString& name) {
+    blockSignals(true);
     QFile file = shaderFile(index);
-    file.remove();
-    shaders[index].name(name);
+    std::cout << "Removing file for " << shaders.at(index).name().toStdString() << " (" << file.fileName().toStdString() << ")." << std::endl;
+    bool removed = file.remove();
+    if (removed) std::cout << "File removal successful." << std::endl;
+    else std::cout << "File removal failed." << std::endl;
+    shaders.at(index).name(name);
     saveShaderToFile(index);
+    blockSignals(false);
     updated();
 }
 

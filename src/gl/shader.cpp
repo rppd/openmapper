@@ -1,10 +1,10 @@
 #include "shader.h"
 
-QString Shader::defaultShaderSource = "#version 330 core"
-            "in vec2 vert;"
-            "in vec2 uv;"
-            "out vec4 FragColor;"
-            "void main() { FragColor =  vec4((uv.x+uv.y)/2,0,1,1); };";
+QString Shader::defaultShaderSource = "#version 330 core \n"
+            "in vec2 vert; \n"
+            "in vec2 uv; \n"
+            "out vec4 FragColor; \n"
+            "void main() { \n FragColor =  vec4((uv.x+uv.y)/2,0,1,1); \n };";
 Shader Shader::defaultShader = Shader();
 
 

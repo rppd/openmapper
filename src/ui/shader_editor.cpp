@@ -82,7 +82,13 @@ void ShaderEditor::save() const {
     QString currentName = shaderLibrary->at(selectedShaderIndex).name();
     QString newName = nameInput->text();
     if (currentName != newName) {
+        shaderSelector->blockSignals(true);
+        shaderSelector->setCurrentText(newName);
+        std::cout << "Set shader selector text to " << newName.toStdString() << "." << std::endl;
         shaderLibrary->rename(selectedShaderIndex, newName);
+        shaderSelector->blockSignals(false);
+        std::cout << "About to load shaders with currentText == " << shaderSelector->currentText().toStdString() << "." << std::endl;
+        std::cout << "Renamed shader " << currentName.toStdString() << " to " << newName.toStdString() << "." << std::endl;
     }
     errorArea -> setPlainText("Saving shader...");
     shaderLibrary->saveShaderCode(selectedShaderIndex,textArea->toPlainText());
