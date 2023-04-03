@@ -11,14 +11,16 @@ class ShaderSelector: public QComboBox {
     public:
         ShaderSelector(ShaderLibrary* library);
 
-        int selection() const { return _selection; };
-        void selection(int aselection) { _selection = aselection; };
+        Shader& selection() const;
+        bool newShaderOption() const { return _newShaderOption; };
+        void newShaderOption(bool newShaderOption) { _newShaderOption = newShaderOption; };
 
         void load();
         
     private:
         ShaderLibrary* _library;
         int _selection = -1;
+        bool _newShaderOption = false;
 };
 
 #endif

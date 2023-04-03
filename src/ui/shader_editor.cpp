@@ -10,6 +10,7 @@ ShaderEditor::ShaderEditor(ShaderLibrary* library): shaderLibrary(library) {
     saveButton = new QPushButton("Save");
     deleteButton = new QPushButton("Delete");
     shaderSelector = new ShaderSelector(shaderLibrary);
+    shaderSelector->newShaderOption(true);
     
     saveLayout->addWidget(nameInput);
     saveLayout->addWidget(saveButton);

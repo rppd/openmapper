@@ -35,6 +35,7 @@ public:
     void context(QOpenGLContext* ctx) { _ctx = ctx; build(); }
     GLPointers pointers() const { return _pointers; };
 
+    int nShapes() const { return shapes.size(); };
     void append(const Shape& shape) { shapes.push_back(shape); build(); };
     const Shape& at(const int i) const { return shapes.at(i); };
 

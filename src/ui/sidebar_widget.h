@@ -12,6 +12,9 @@
 #include <QPushButton>
 #include <QListWidget>
 #include <QComboBox>
+#include <QLineEdit>
+#include <QGridLayout>
+#include <QLabel>
 
 class SidebarWidget: public QWidget {
     Q_OBJECT
@@ -23,16 +26,19 @@ class SidebarWidget: public QWidget {
         
         void setScene(Scene* scene);
         void selectGroup(int index);
-        void selectShader(int index);
+        void updateShaderSelection();
+        void renameGroup(const QString& name);
 
     public slots:
         void update();
 
     private:
         QVBoxLayout* layout;
+        QGridLayout* gridLayout;
         QListWidget* shapeList;
         QComboBox* groupSelector;
         ShaderSelector* shaderSelector;
+        QLineEdit* nameInput;
 
         Scene& _scene;
         ShaderLibrary* shaderLibrary;

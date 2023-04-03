@@ -15,37 +15,50 @@ SidebarWidget::SidebarWidget(Scene& scene, ShaderLibrary* shaderLibrary): _scene
     shaderSelector = new ShaderSelector(shaderLibrary);
     shapeList = new QListWidget();
     layout = new QVBoxLayout();
+    gridLayout = new QGridLayout();
+    nameInput = new QLineEdit();
+    gridLayout->addWidget(new QLabel("Name"),0,0);
+    gridLayout->addWidget(nameInput,0,1);
+    gridLayout->addWidget(new QLabel("Shader"),1,0);
+    gridLayout->addWidget(shaderSelector,1,1);
     
     layout->addWidget(groupSelector);
-    layout->addWidget(shaderSelector);
+    layout->addLayout(gridLayout);
     layout->addWidget(shapeList);
     layout->addStretch();
     setLayout(layout);
-
-    connect(shaderSelector, &QComboBox::currentIndexChanged, this, &SidebarWidget::selectShader);
+    
+    connect(shaderSelector, &QComboBox::currentIndexChanged, this, &SidebarWidget::updateShaderSelection);
+    connect(nameInput, &QLineEdit::textChanged, this, &SidebarWidget::renameGroup);
 }
 
 void SidebarWidget::update() {
-    std::cout << "update sidebar widget cuz" << std::endl;
     groupSelector->clear();
     groupSelector->addItems(_scene.getGroupNames());
     selectGroup(groupSelector->currentIndex());
-    std::cout << "update sidebar widget over" << std::endl;
 }
 
 void SidebarWidget::selectGroup(int index) {
-    if (index == -1) index = 0;
+    if (index == -1) return;
+    ShapeGroup& selectedGroup = _scene.at(index);
+    nameInput->setText(selectedGroup.name());
+
     shapeList->clear();
-    for (int i=0; i<_scene.nGroups(); i++) {
+    for (int i=0; i<selectedGroup.nShapes(); i++) {
         shapeList->addItem(QString::number(i));
     }
 }
 
-void SidebarWidget::selectShader(int index) {
-    if (index == -1 || groupSelector->currentIndex() == -1) return;
-    Shader& shader = shaderLibrary->at(index);
-    if (groupSelector->currentIndex() != -1) {
-        ShapeGroup& selectedGroup = _scene.at(groupSelector->currentIndex());
-        selectedGroup.shaderSource(shader.source());
-    }
+void SidebarWidget::updateShaderSelection() {
+    if (shaderSelector->currentIndex() == -1 || groupSelector->currentIndex() == -1) return;
+    Shader& shader = shaderSelector->selection();
+    ShapeGroup& selectedGroup = _scene.at(groupSelector->currentIndex());
+    selectedGroup.shaderSource(shader.source());
+}
+
+void SidebarWidget::renameGroup(const QString& name) {
+    if (groupSelector->currentIndex() == -1) return;
+    ShapeGroup& selectedGroup = _scene.at(groupSelector->currentIndex());
+    selectedGroup.name(name);
+    update();
 }
